@@ -47,6 +47,7 @@ def LLL(B, delta = 0.75):
     B = B.copy()
     k = 1
     SizeReduce(B) #we will make the function in the dependencies section
+    GSO = GramSchmidt(B)
     for i in range (len(B)): #n=len(B) is rank of lattice, no of rows in lattice
         if not Lovasz(B, GSO, k, delta):
             B[i , i-1] = B[i-1 , i] #swapping works like a,b = b,a in python
