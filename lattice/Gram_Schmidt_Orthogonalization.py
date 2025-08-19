@@ -8,10 +8,10 @@ def Projection(b1,b2):
     return GramSchmidtCoefficient(b1,b2) * b2
   
 def GramSchmidt(B):
-    n = B.shape[0]
-    m = B.shape[1]
-    GSO = np.zeros((n,m))
-    for i in range (n):
+    n = B.shape[0]           #Extracting number of rows
+    m = B.shape[1]           #Extracting number of columns
+    GSO = np.zeros((n,m))    #creating an array of dimension m*n with zeroes only
+    for i in range (n):        
         vector = B[i].copy()
         for j in range (i):
             vector = vector - Projection(vector, GSO[j])
